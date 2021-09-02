@@ -49,17 +49,14 @@ var li = document.createElement("li")
 var inputValue = document.getElementById("task").value 
 var t = document.createTextNode(inputValue)
 li.appendChild(t)
-if(inputValue === '') {
 
-alert("You must write something")
-
-} else {
-
-document.getElementById("list").appendChild(li)
-
-}
-
-document.getElementById("task").value = ""
+if (inputValue === "" || inputValue.replace(/^\s+|\s+$/g, "").length == 0) {
+    $(".error").toast("show");
+  } else {
+    $(".success").toast("show");
+    document.getElementById("list").appendChild(li);
+  }
+  document.getElementById("task").value = "";
 
 
 var span = document.createElement("SPAN")
